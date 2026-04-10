@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         final RatingBar ratingBar = findViewById(R.id.ratingBar);
         final Button btnPublish = findViewById(R.id.btnPublish);
         final TextView tvTitle = findViewById(R.id.textViewTitle);
-
-        // Initialize the ImageViews
         final ImageView imgReuven = findViewById(R.id.imageViewReuven);
         final ImageView imgMichael = findViewById(R.id.imageViewMichael);
         final ImageView imgAmir = findViewById(R.id.imageViewAmir);
@@ -41,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter a name and a rating!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                // Create the Intent to move to ReviewActivity
                 Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
                 intent.putExtra("RESTAURANT_NAME", name);
                 intent.putExtra("RATING", rating);

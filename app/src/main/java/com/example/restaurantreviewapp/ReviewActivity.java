@@ -20,13 +20,11 @@ public class ReviewActivity extends AppCompatActivity {
         RatingBar rb = findViewById(R.id.reviewRatingBar);
         Button btnBack = findViewById(R.id.btnBack);
 
-        // Get data from the Intent
         String name = getIntent().getStringExtra("RESTAURANT_NAME");
         float rating = getIntent().getFloatExtra("RATING", 0f);
 
         rb.setRating(rating);
 
-        // Logic to determine feedback and image
         String feedback;
         int imageResId;
 
@@ -44,6 +42,6 @@ public class ReviewActivity extends AppCompatActivity {
         tvTitle.setText(name + ": " + feedback);
         ivReviewer.setImageResource(imageResId);
 
-        btnBack.setOnClickListener(v -> finish()); // Closes this screen and goes back
+        btnBack.setOnClickListener(v -> finish());
     }
 }
