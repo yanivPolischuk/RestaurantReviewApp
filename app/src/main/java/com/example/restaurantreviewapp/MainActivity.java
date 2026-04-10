@@ -1,5 +1,6 @@
 package com.example.restaurantreviewapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -41,29 +42,11 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                imgReuven.setVisibility(View.GONE);
-                imgMichael.setVisibility(View.GONE);
-                imgAmir.setVisibility(View.GONE);
-
-                String feedback;
-                ImageView reviewerToFlash;
-
-                if (rating >= 4.0) {
-                    feedback = "It's great!";
-                    reviewerToFlash = findViewById(R.id.imageViewReuven);
-                } else if (rating >= 2.0) {
-                    feedback = "It's mid.";
-                    reviewerToFlash = findViewById(R.id.imageViewMichael);
-                } else {
-                    feedback = "It's dogwater.";
-                    reviewerToFlash = findViewById(R.id.imageViewAmir);
-                }
-
-                tvTitle.setText(name + ": " + feedback);
-                triggerFadeAnimation(tvTitle);
-                triggerFadeAnimation(reviewerToFlash); // Flash the specific reviewer
-
-                Toast.makeText(MainActivity.this, "Review Published!", Toast.LENGTH_SHORT).show();
+                // Create the Intent to move to ReviewActivity
+                Intent intent = new Intent(MainActivity.this, ReviewActivity.class);
+                intent.putExtra("RESTAURANT_NAME", name);
+                intent.putExtra("RATING", rating);
+                startActivity(intent);
             }
         });
     }
